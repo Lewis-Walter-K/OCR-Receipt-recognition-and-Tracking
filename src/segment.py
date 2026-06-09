@@ -1,6 +1,7 @@
 import cv2
 import matplotlib.pyplot as plt
 from ultralytics import YOLO
+import os
 
 def get_receipt_contour(image_path, model_path="models/best.pt"):
     # 1. Load your custom trained model weights
@@ -24,6 +25,9 @@ def get_receipt_contour(image_path, model_path="models/best.pt"):
 
 # --- Quick Test ---
 if __name__ == "__main__":
+    # Create output folder if it doesn't exist
+    os.makedirs("output", exist_ok=True)
+    
     # Test it on your raw smartphone photo
     points, original_image, annotated_image = get_receipt_contour("pic/receipt1.jpg")
     
@@ -33,8 +37,8 @@ if __name__ == "__main__":
         # --- TWO WAYS TO VIEW THE RESULT ---
         
         # Method 1: Save it as a new file in your folder (Foolproof)
-        cv2.imwrite("output_receipt.jpg", annotated_image)
-        print("Saved visual output to 'output_receipt.jpg'. Open your folder to view it!")
+        cv2.imwrite("output/output_receipt.jpg", annotated_image)
+        print("Saved visual output to 'output/output_receipt.jpg'. Open your folder to view it!")
         
         # Method 2: Pop it up on your screen right now (using Matplotlib)
         # We have to convert the colors from OpenCV's BGR to standard RGB first
