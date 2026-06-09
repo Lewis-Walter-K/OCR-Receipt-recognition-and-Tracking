@@ -5,3 +5,6 @@
 data.yaml
 best.pt
 yolov8n-seg.pt
+__pycache__
+/backup
+/dataset
