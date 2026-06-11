@@ -1,3 +1,9 @@
 ultralytics
 matplotlib
 opencv-python
+easyocr
+torch 
+transformers 
+datasets 
+accelerate 
+seqeval
